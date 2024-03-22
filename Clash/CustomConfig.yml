@@ -1,0 +1,3 @@
+allow-lan: true
+log-level: silent
+tcp-concurrent: true
