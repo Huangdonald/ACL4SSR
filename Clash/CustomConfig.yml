@@ -2,4 +2,4 @@ allow-lan: true
 log-level: silent
 tcp-concurrent: true
 dns:
-  enable: false
+    enable: false
