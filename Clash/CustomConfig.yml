@@ -1,6 +1,5 @@
 allow-lan: true
 log-level: silent
-unified-delay: true
 tcp-concurrent: false
 dns:
   enable: true
