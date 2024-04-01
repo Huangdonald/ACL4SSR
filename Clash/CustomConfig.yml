@@ -1,6 +1,6 @@
 allow-lan: true
 log-level: silent
-tcp-concurrent: false
+tcp-concurrent: true
 dns:
   enable: true
   prefer-h3: false
