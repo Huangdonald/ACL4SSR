@@ -5,8 +5,10 @@ dns:
   enable: true
   prefer-h3: false
   ipv6: false
-geodata-mode: false
+geodata-mode: true
 geodata-loader: memconservative
 geox-url:
+  geoip: "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/cn.dat"
   mmdb: "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb"
   asn: "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country-asn.mmdb"
+  
