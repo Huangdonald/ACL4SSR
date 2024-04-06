@@ -5,6 +5,24 @@ dns:
   enable: true
   prefer-h3: false
   ipv6: false
+  default-nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+  enhanced-mode: fake-ip
+  fallback:
+    - https://8.8.8.8/dns-query
+    - https://cloudflare-dns.com/dns-query
+  nameserver-policy:
+    "geosite:cn,private":
+      - https://doh.pub/dns-query
+      - https://dns.alidns.com/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+
 geodata-mode: true
 geodata-loader: memconservative
 geox-url:
