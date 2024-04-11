@@ -3,7 +3,6 @@ log-level: silent
 tcp-concurrent: true
 dns:
   enable: true
-  prefer-h3: true
   ipv6: false
 geodata-mode: true
 geodata-loader: memconservative
