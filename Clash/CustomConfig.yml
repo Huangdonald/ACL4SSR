@@ -6,6 +6,8 @@ dns:
   ipv6: false
 geodata-mode: true
 geodata-loader: memconservative
+geo-auto-update: true
+geo-update-interval: 24
 geox-url:
   geoip: "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat"
   geosite: "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat"
