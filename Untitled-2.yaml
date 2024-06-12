@@ -1,0 +1,255 @@
+allow-lan: true
+tcp-concurrent: true
+dns:
+  enable: true
+  ipv6: false
+geodata-mode: true
+geodata-loader: memconservative
+geo-auto-update: true
+geo-update-interval: 24
+geox-url:
+  geoip: https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/geoip-only-cn-private.dat
+  geosite: https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
+proxy-providers:
+  MrXbin:
+    type: http
+    path: ./proxy_providers/MrXbin.yaml
+    url: https://cdn.jsdelivr.net/gh/peasoft/NoMoreWalls@master/snippets/nodes.meta.yml
+    interval: 3600 
+    proxy: DIRECT
+    filter: 'MrXbin'
+    health-check:
+      enable: true
+      url: https://cp.cloudflare.com
+      interval: 300
+      timeout: 1000
+      lazy: true
+  speednode:
+    type: http
+    path: ./proxy_providers/speednode.yaml
+    url: https://cdn.jsdelivr.net/gh/zhangkaiitugithub/passcro@main/speednodes.yaml
+    interval: 3600 
+    proxy: DIRECT
+    filter: 'speednode'
+    health-check:
+      enable: true
+      url: https://cp.cloudflare.com
+      interval: 300
+      timeout: 1000
+      lazy: true
+  ripaojiedian:
+    type: http
+    path: ./proxy_providers/ripaojiedian.yaml
+    url: https://cdn.jsdelivr.net/gh/ripaojiedian/freenode@main/sub
+    interval: 3600 
+    proxy: DIRECT
+    filter: 'ripaojiedian'
+    health-check:
+      enable: true
+      url: https://cp.cloudflare.com
+      interval: 300
+      timeout: 1000
+      lazy: true
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🔯 故障转移
+      - 🔮 负载均衡
+      - MrXbin
+      - speednode
+      - ripaojiedian
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇰🇷 韩国节点
+      - 🚀 手动切换
+      - DIRECT
+  - name: 🚀 手动切换
+    type: select
+    use:
+      - MrXbin
+      - speednode
+      - ripaojiedian
+    proxies:
+      - DIRECT
+  - name: ♻️ 自动选择
+    type: url-test
+    url: https://cp.cloudflare.com
+    interval: 300
+    tolerance: 50
+    lazy: true
+    timeout: 1000
+    use:
+      - MrXbin
+      - speednode
+      - ripaojiedian
+  - name: 🔯 故障转移
+    type: fallback
+    url: https://cp.cloudflare.com
+    interval: 300
+    lazy: true
+    timeout: 1000
+    use:
+      - MrXbin
+      - speednode
+      - ripaojiedian
+  - name: 🔮 负载均衡
+    type: load-balance
+    strategy: consistent-hashing
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    url: https://cp.cloudflare.com
+    interval: 300
+    tolerance: 50
+    lazy: true
+    timeout: 1000
+    use:
+      - MrXbin
+      - speednode
+      - ripaojiedian
+  - name: 💬 OpenAi
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ♻️ 自动选择
+      - 🇸🇬 狮城节点
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇰🇷 韩国节点
+      - 🚀 手动切换
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - DIRECT
+  - name: MrXbin
+    type: url-test
+    url: https://cp.cloudflare.com
+    interval: 300
+    tolerance: 50
+    lazy: true
+    timeout: 1000
+    filter: "MrXbin"
+    use:
+      - MrXbin
+  - name: speednode
+    type: url-test
+    url: https://cp.cloudflare.com
+    interval: 300
+    tolerance: 50
+    lazy: true
+    timeout: 1000
+    filter: "speednode"
+    use:
+      - speednode
+  - name: ripaojiedian
+    type: url-test
+    url: https://cp.cloudflare.com
+    interval: 300
+    tolerance: 50
+    lazy: true
+    timeout: 1000
+    filter: "ripaojiedian"
+    use:
+      - ripaojiedian
+  - name: 🇭🇰 香港节点
+    type: url-test
+    url: https://cp.cloudflare.com
+    interval: 300
+    tolerance: 50
+    lazy: true
+    timeout: 1000
+    filter: "港|HK|hk|Hong Kong|HongKong|hongkong"
+    use:
+      - MrXbin
+      - speednode
+      - ripaojiedian
+  - name: 🇯🇵 日本节点
+    type: url-test
+    url: https://cp.cloudflare.com
+    interval: 300
+    tolerance: 50
+    lazy: true
+    timeout: 1000
+    filter: "日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan"
+    use:
+      - MrXbin
+      - speednode
+      - ripaojiedian
+  - name: 🇺🇲 美国节点
+    type: url-test
+    url: https://cp.cloudflare.com
+    interval: 300
+    tolerance: 50
+    lazy: true
+    timeout: 1000
+    filter: "美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States"
+    use:
+      - MrXbin
+      - speednode
+      - ripaojiedian
+  - name: 🇨🇳 台湾节点
+    type: url-test
+    url: https://cp.cloudflare.com
+    interval: 300
+    tolerance: 50
+    lazy: true
+    timeout: 1000
+    filter: "台|新北|彰化|TW|Taiwan"
+    use:
+      - MrXbin
+      - speednode
+      - ripaojiedian
+  - name: 🇸🇬 狮城节点
+    type: url-test
+    url: https://cp.cloudflare.com
+    interval: 300
+    tolerance: 50
+    lazy: true
+    timeout: 1000
+    filter: "新加坡|坡|狮城|SG|Singapore"
+    use:
+      - MrXbin
+      - speednode
+      - ripaojiedian
+  - name: 🇰🇷 韩国节点
+    type: url-test
+    url: https://cp.cloudflare.com
+    interval: 300
+    tolerance: 50
+    lazy: true
+    timeout: 1000
+    filter: "KR|Korea|KOR|首尔|韩|韓"
+    use:
+      - MrXbin
+      - speednode
+      - ripaojiedian
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - DIRECT
+      - ♻️ 自动选择
+rules:
+  - GEOIP,private,DIRECT
+  - GEOSITE,private,DIRECT
+  - GEOSITE,category-ads-all,REJECT
+  - GEOSITE,github,🚀 节点选择
+  - GEOSITE,microsoft,Ⓜ️ 微软服务
+  - GEOSITE,apple,🍎 苹果服务
+  - GEOSITE,openai,💬 OpenAi
+  - GEOSITE,geolocation-!cn,🚀 节点选择
+  - GEOSITE,CN,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,🐟 漏网之鱼
