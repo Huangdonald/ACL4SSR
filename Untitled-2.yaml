@@ -100,8 +100,6 @@ proxy-groups:
   - name: 🔮 负载均衡
     type: load-balance
     strategy: consistent-hashing
-    url: https://www.gstatic.com/generate_204
-    interval: 300
     url: https://cp.cloudflare.com
     interval: 300
     tolerance: 50
