@@ -17,7 +17,7 @@ proxy-providers:
     url: https://cdn.jsdelivr.net/gh/peasoft/NoMoreWalls@master/snippets/nodes.meta.yml
     interval: 3600 
     proxy: DIRECT
-    filter: 'MrXbin'
+    filter: "MrXbin"
     health-check:
       enable: true
       url: https://cp.cloudflare.com
@@ -30,7 +30,7 @@ proxy-providers:
     url: https://cdn.jsdelivr.net/gh/zhangkaiitugithub/passcro@main/speednodes.yaml
     interval: 3600 
     proxy: DIRECT
-    filter: 'speednode'
+    filter: "speednode"
     health-check:
       enable: true
       url: https://cp.cloudflare.com
@@ -43,7 +43,7 @@ proxy-providers:
     url: https://cdn.jsdelivr.net/gh/ripaojiedian/freenode@main/sub
     interval: 3600 
     proxy: DIRECT
-    filter: 'ripaojiedian'
+    filter: "ripaojiedian"
     health-check:
       enable: true
       url: https://cp.cloudflare.com
