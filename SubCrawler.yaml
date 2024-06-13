@@ -9,7 +9,7 @@ geo-auto-update: true
 geo-update-interval: 24
 geox-url:
   geoip: https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip.dat
-  geosite: https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/blob/release/geosite.dat
+  geosite: https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
 proxy-providers:
   SubCrawler:
     type: http
