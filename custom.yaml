@@ -20,7 +20,7 @@ proxy-providers:
     filter: "MrXbin"
     health-check:
       enable: true
-      url: https://cp.cloudflare.com
+      url: https://www.gstatic.com/generate_204
       interval: 300
       timeout: 1000
       lazy: true
@@ -33,7 +33,7 @@ proxy-providers:
     filter: "speednode"
     health-check:
       enable: true
-      url: https://cp.cloudflare.com
+      url: https://www.gstatic.com/generate_204
       interval: 300
       timeout: 1000
       lazy: true
@@ -46,7 +46,7 @@ proxy-providers:
     filter: "ripaojiedian"
     health-check:
       enable: true
-      url: https://cp.cloudflare.com
+      url: https://www.gstatic.com/generate_204
       interval: 300
       timeout: 1000
       lazy: true
@@ -78,7 +78,7 @@ proxy-groups:
       - DIRECT
   - name: ♻️ 自动选择
     type: url-test
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -89,7 +89,7 @@ proxy-groups:
       - ripaojiedian
   - name: 🔯 故障转移
     type: fallback
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     lazy: true
     timeout: 1000
@@ -100,7 +100,7 @@ proxy-groups:
   - name: 🔮 负载均衡
     type: load-balance
     strategy: consistent-hashing
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -133,7 +133,7 @@ proxy-groups:
       - DIRECT
   - name: MrXbin
     type: url-test
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -143,7 +143,7 @@ proxy-groups:
       - MrXbin
   - name: speednode
     type: url-test
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -153,7 +153,7 @@ proxy-groups:
       - speednode
   - name: ripaojiedian
     type: url-test
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -163,7 +163,7 @@ proxy-groups:
       - ripaojiedian
   - name: 🇭🇰 香港节点
     type: url-test
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -175,7 +175,7 @@ proxy-groups:
       - ripaojiedian
   - name: 🇯🇵 日本节点
     type: url-test
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -187,7 +187,7 @@ proxy-groups:
       - ripaojiedian
   - name: 🇺🇲 美国节点
     type: url-test
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -199,7 +199,7 @@ proxy-groups:
       - ripaojiedian
   - name: 🇨🇳 台湾节点
     type: url-test
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -211,7 +211,7 @@ proxy-groups:
       - ripaojiedian
   - name: 🇸🇬 狮城节点
     type: url-test
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -223,7 +223,7 @@ proxy-groups:
       - ripaojiedian
   - name: 🇰🇷 韩国节点
     type: url-test
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true

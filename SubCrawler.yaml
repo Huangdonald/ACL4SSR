@@ -20,7 +20,7 @@ proxy-providers:
     filter: "台湾|新加坡|日本|韩国"
     health-check:
       enable: true
-      url: https://cp.cloudflare.com
+      url: https://www.gstatic.com/generate_204
       interval: 300
       timeout: 1000
       lazy: true
@@ -45,7 +45,7 @@ proxy-groups:
       - DIRECT
   - name: ♻️ 自动选择
     type: url-test
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -54,7 +54,7 @@ proxy-groups:
       - SubCrawler
   - name: 🔯 故障转移
     type: fallback
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     lazy: true
     timeout: 1000
@@ -63,7 +63,7 @@ proxy-groups:
   - name: 🔮 负载均衡
     type: load-balance
     strategy: consistent-hashing
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -92,7 +92,7 @@ proxy-groups:
       - DIRECT
   - name: 🇨🇳 台湾节点
     type: url-test
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -102,7 +102,7 @@ proxy-groups:
       - SubCrawler
   - name: 🇸🇬 狮城节点
     type: url-test
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -112,7 +112,7 @@ proxy-groups:
       - SubCrawler
   - name: 🇯🇵 日本节点
     type: url-test
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -122,7 +122,7 @@ proxy-groups:
       - SubCrawler
   - name: 🇰🇷 韩国节点
     type: url-test
-    url: https://cp.cloudflare.com
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
