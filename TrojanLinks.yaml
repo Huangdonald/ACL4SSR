@@ -117,6 +117,16 @@ proxy-groups:
     filter: "KR|Korea|KOR|首尔|韩|韓"
     use:
       - TrojanLinks
+  - name: 🇺🇲 美国节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    lazy: true
+    timeout: 1000
+    filter: "美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States"
+    use:
+      - TrojanLinks
   - name: 🐟 漏网之鱼
     type: select
     proxies:
