@@ -1,0 +1,137 @@
+allow-lan: true
+tcp-concurrent: false
+dns:
+  enable: true
+  ipv6: false
+geodata-mode: true
+geodata-loader: memconservative
+geo-auto-update: true
+geo-update-interval: 24
+geox-url:
+  geoip: "https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/geoip-only-cn-private.dat"
+  geosite: "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
+proxy-providers:
+  TrojanLinks:
+    type: http
+    path: ./proxy_providers/TrojanLinks.yaml
+    url: https://raw.githubusercontent.com/Huibq/TrojanLinks/master/links/trojan
+    interval: 3600 
+    proxy: DIRECT
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 1000
+      lazy: true
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🔯 故障转移
+      - 🔮 负载均衡
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇰🇷 韩国节点
+      - 🚀 手动切换
+      - DIRECT
+  - name: 🚀 手动切换
+    type: select
+    use:
+      - TrojanLinks
+    proxies:
+      - DIRECT
+  - name: ♻️ 自动选择
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    lazy: true
+    timeout: 1000
+    use:
+      - TrojanLinks
+  - name: 🔯 故障转移
+    type: fallback
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    lazy: true
+    timeout: 1000
+    use:
+      - TrojanLinks
+  - name: 🔮 负载均衡
+    type: load-balance
+    strategy: consistent-hashing
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    lazy: true
+    timeout: 1000
+    use:
+      - TrojanLinks
+  - name: 💬 OpenAi
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ♻️ 自动选择
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇰🇷 韩国节点
+      - 🚀 手动切换
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - DIRECT
+  - name: 🇸🇬 狮城节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    lazy: true
+    timeout: 1000
+    filter: "新加坡|坡|狮城|SG|Singapore"
+    use:
+      - TrojanLinks
+  - name: 🇯🇵 日本节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    lazy: true
+    timeout: 1000
+    filter: "日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan"
+    use:
+      - TrojanLinks
+  - name: 🇰🇷 韩国节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    lazy: true
+    timeout: 1000
+    filter: "KR|Korea|KOR|首尔|韩|韓"
+    use:
+      - TrojanLinks
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - DIRECT
+      - ♻️ 自动选择
+rules:
+  - GEOIP,private,DIRECT
+  - GEOSITE,private,DIRECT
+#  - GEOSITE,category-ads-all,REJECT
+  - GEOSITE,github,🚀 节点选择
+  - GEOSITE,microsoft,Ⓜ️ 微软服务
+  - GEOSITE,apple,🍎 苹果服务
+  - GEOSITE,openai,💬 OpenAi
+  - GEOSITE,geolocation-!cn,🚀 节点选择
+  - GEOSITE,CN,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,🐟 漏网之鱼
