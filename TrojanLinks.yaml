@@ -15,7 +15,7 @@ proxy-providers:
     type: http
     path: ./proxy_providers/TrojanLinks.yaml
     url: https://raw.githubusercontent.com/Huibq/TrojanLinks/master/links/trojan
-    interval: 3600 
+    interval: 1800 
     proxy: DIRECT
     health-check:
       enable: true
