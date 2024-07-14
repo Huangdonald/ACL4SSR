@@ -17,7 +17,7 @@ proxy-providers:
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
     interval: 3600 
     proxy: DIRECT
-    filter: "MrXbin"
+    exclude-filter: "speednode|ripaojiedian"
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
