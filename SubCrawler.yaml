@@ -15,8 +15,7 @@ proxy-providers:
     type: http
     path: ./proxy_providers/SubCrawler.yaml
     url: https://raw.githubusercontent.com/Leon406/SubCrawler/main/sub/share/vless
-    interval: 3600 
-    proxy: DIRECT
+    interval: 3600
     filter: "台湾|新加坡|日本|韩国"
     health-check:
       enable: true

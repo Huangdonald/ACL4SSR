@@ -15,8 +15,7 @@ proxy-providers:
     type: http
     path: ./proxy_providers/MrXbin.yaml
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
-    interval: 3600 
-    proxy: DIRECT
+    interval: 3600
     exclude-filter: "speednode|ripaojiedian"
     health-check:
       enable: true
@@ -28,8 +27,7 @@ proxy-providers:
     type: http
     path: ./proxy_providers/speednode.yaml
     url: https://raw.githubusercontent.com/zhangkaiitugithub/passcro/main/speednodes.yaml
-    interval: 3600 
-    proxy: DIRECT
+    interval: 3600
     filter: "speednode"
     exclude-filter: "CN"
     health-check:
@@ -42,8 +40,7 @@ proxy-providers:
     type: http
     path: ./proxy_providers/ripaojiedian.yaml
     url: https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub
-    interval: 3600 
-    proxy: DIRECT
+    interval: 3600
     filter: "ripaojiedian"
     health-check:
       enable: true
