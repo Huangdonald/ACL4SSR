@@ -29,7 +29,6 @@ proxy-providers:
     url: https://raw.githubusercontent.com/zhangkaiitugithub/passcro/main/speednodes.yaml
     interval: 3600
     filter: "speednode"
-    exclude-filter: "CN"
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
