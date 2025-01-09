@@ -135,7 +135,6 @@ proxy-groups:
     tolerance: 50
     lazy: true
     timeout: 1000
-    filter: "^(?!.*(?:speednode|ripaojiedian)).*$"
     use:
       - NoMoreWalls
   - name: speednode
