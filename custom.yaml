@@ -144,7 +144,6 @@ proxy-groups:
     tolerance: 50
     lazy: true
     timeout: 1000
-    filter: "speednode"
     use:
       - speednode
   - name: ripaojiedian
@@ -154,7 +153,6 @@ proxy-groups:
     tolerance: 50
     lazy: true
     timeout: 1000
-    filter: "ripaojiedian"
     use:
       - ripaojiedian
   - name: 🇭🇰 香港节点
