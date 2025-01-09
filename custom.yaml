@@ -11,9 +11,9 @@ geox-url:
   geoip: "https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/geoip-only-cn-private.dat"
   geosite: "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
 proxy-providers:
-  MrXbin:
+  NoMoreWalls:
     type: http
-    path: ./proxy_providers/MrXbin.yaml
+    path: ./proxy_providers/NoMoreWalls.yaml
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
     interval: 3600
     exclude-filter: "speednode|ripaojiedian"
@@ -29,7 +29,6 @@ proxy-providers:
     url: https://raw.githubusercontent.com/zhangkaiitugithub/passcro/main/speednodes.yaml
     interval: 3600
     filter: "speednode"
-    exclude-filter: "CN"
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
@@ -55,7 +54,7 @@ proxy-groups:
       - ♻️ 自动选择
       - 🔯 故障转移
       - 🔮 负载均衡
-      - MrXbin
+      - NoMoreWalls
       - speednode
       - ripaojiedian
       - 🇭🇰 香港节点
@@ -69,7 +68,7 @@ proxy-groups:
   - name: 🚀 手动切换
     type: select
     use:
-      - MrXbin
+      - NoMoreWalls
       - speednode
       - ripaojiedian
     proxies:
@@ -82,7 +81,7 @@ proxy-groups:
     lazy: true
     timeout: 1000
     use:
-      - MrXbin
+      - NoMoreWalls
       - speednode
       - ripaojiedian
   - name: 🔯 故障转移
@@ -92,7 +91,7 @@ proxy-groups:
     lazy: true
     timeout: 1000
     use:
-      - MrXbin
+      - NoMoreWalls
       - speednode
       - ripaojiedian
   - name: 🔮 负载均衡
@@ -104,7 +103,7 @@ proxy-groups:
     lazy: true
     timeout: 1000
     use:
-      - MrXbin
+      - NoMoreWalls
       - speednode
       - ripaojiedian
   - name: 💬 OpenAi
@@ -129,16 +128,16 @@ proxy-groups:
     proxies:
       - 🚀 节点选择
       - DIRECT
-  - name: MrXbin
+  - name: NoMoreWalls
     type: url-test
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
     timeout: 1000
-    filter: "MrXbin"
+    filter: "^(?!.*(?:speednode|ripaojiedian)).*$"
     use:
-      - MrXbin
+      - NoMoreWalls
   - name: speednode
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -168,7 +167,7 @@ proxy-groups:
     timeout: 1000
     filter: "港|HK|hk|Hong Kong|HongKong|hongkong"
     use:
-      - MrXbin
+      - NoMoreWalls
       - speednode
       - ripaojiedian
   - name: 🇯🇵 日本节点
@@ -180,7 +179,7 @@ proxy-groups:
     timeout: 1000
     filter: "日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan"
     use:
-      - MrXbin
+      - NoMoreWalls
       - speednode
       - ripaojiedian
   - name: 🇺🇲 美国节点
@@ -192,7 +191,7 @@ proxy-groups:
     timeout: 1000
     filter: "美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States"
     use:
-      - MrXbin
+      - NoMoreWalls
       - speednode
       - ripaojiedian
   - name: 🇨🇳 台湾节点
@@ -204,7 +203,7 @@ proxy-groups:
     timeout: 1000
     filter: "台|新北|彰化|TW|Taiwan"
     use:
-      - MrXbin
+      - NoMoreWalls
       - speednode
       - ripaojiedian
   - name: 🇸🇬 狮城节点
@@ -216,7 +215,7 @@ proxy-groups:
     timeout: 1000
     filter: "新加坡|坡|狮城|SG|Singapore"
     use:
-      - MrXbin
+      - NoMoreWalls
       - speednode
       - ripaojiedian
   - name: 🇰🇷 韩国节点
@@ -228,7 +227,7 @@ proxy-groups:
     timeout: 1000
     filter: "KR|Korea|KOR|首尔|韩|韓"
     use:
-      - MrXbin
+      - NoMoreWalls
       - speednode
       - ripaojiedian
   - name: 🐟 漏网之鱼
