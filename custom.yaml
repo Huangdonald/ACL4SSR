@@ -1,5 +1,6 @@
+log-level: silent
 allow-lan: true
-tcp-concurrent: false
+tcp-concurrent: true
 dns:
   enable: true
   ipv6: false
