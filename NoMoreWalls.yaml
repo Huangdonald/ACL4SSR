@@ -198,7 +198,6 @@ rules:
   - GEOSITE,github,🚀 节点选择
   - GEOSITE,microsoft,Ⓜ️ 微软服务
   - GEOSITE,apple,🍎 苹果服务
-  - GEOSITE,openai,💬 OpenAi
   - GEOSITE,geolocation-!cn,🚀 节点选择
   - GEOSITE,CN,DIRECT
   - GEOIP,CN,DIRECT
