@@ -30,7 +30,11 @@ proxy-providers:
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
     interval: 3600
     health-check:
-      enable: false
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 1000
+      lazy: true
 
 proxy-groups:
   - name: 🚀 节点选择
@@ -194,7 +198,7 @@ proxy-groups:
 rules:
   - GEOIP,private,DIRECT
   - GEOSITE,private,DIRECT
-  - GEOSITE,category-ads-all,REJECT
+#  - GEOSITE,category-ads-all,REJECT
   - GEOSITE,github,🚀 节点选择
   - GEOSITE,microsoft,Ⓜ️ 微软服务
   - GEOSITE,apple,🍎 苹果服务
