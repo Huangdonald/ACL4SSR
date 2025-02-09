@@ -15,7 +15,7 @@ proxy-providers:
   NoMoreWalls:
     type: http
     path: ./proxy_providers/NoMoreWalls.yaml
-    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
+    url: https://cdn.jsdelivr.net/gh/peasoft/NoMoreWalls@master/snippets/nodes.meta.yml
     interval: 3600
     exclude-filter: "speednode|ripaojiedian"
     health-check:
@@ -27,7 +27,7 @@ proxy-providers:
   speednode:
     type: http
     path: ./proxy_providers/speednode.yaml
-    url: https://raw.githubusercontent.com/zhangkaiitugithub/passcro/main/speednodes.yaml
+    url: https://cdn.jsdelivr.net/gh/zhangkaiitugithub/passcro@main/speednodes.yaml
     interval: 3600
     filter: "speednode"
     health-check:
@@ -39,7 +39,7 @@ proxy-providers:
   ripaojiedian:
     type: http
     path: ./proxy_providers/ripaojiedian.yaml
-    url: https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub
+    url: https://cdn.jsdelivr.net/gh/ripaojiedian/freenode@main/sub
     interval: 3600
     filter: "ripaojiedian"
     health-check:
