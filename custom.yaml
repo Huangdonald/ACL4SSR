@@ -72,8 +72,6 @@ proxy-groups:
   - name: 🚀 手动切换
     type: select
     include-all-providers: true
-    proxies:
-      - DIRECT
       
   - name: ♻️ 自动选择
     type: url-test
