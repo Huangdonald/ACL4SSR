@@ -2,7 +2,7 @@ log-level: silent
 allow-lan: true
 tcp-concurrent: true
 dns:
-  enable: false
+  enable: true
   ipv6: false
 geodata-mode: true
 geodata-loader: memconservative
