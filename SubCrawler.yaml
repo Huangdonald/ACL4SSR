@@ -14,9 +14,9 @@ proxy-providers:
   SubCrawler:
     type: http
     path: ./proxy_providers/SubCrawler.yaml
-    url: https://raw.githubusercontent.com/Leon406/SubCrawler/main/sub/share/vless
+    url: https://cdn.jsdelivr.net/gh/Huibq/TrojanLinks@refs/heads/master/links/ssr
     interval: 3600
-    filter: "台湾|新加坡|日本|韩国"
+
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
