@@ -27,6 +27,10 @@ proxy-providers:
     url: https://cdn.jsdelivr.net/gh/peasoft/NoMoreWalls@master/snippets/nodes.meta.yml
     interval: 3600
     exclude-filter: "(?i)speednode|ripaojiedian"
+    override:
+      proxy-name:
+      - pattern: "^\\d.*?\\|@?(.*)"
+        target: "$1"    
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
@@ -41,8 +45,8 @@ proxy-providers:
     filter: "speednode"
     override:
       proxy-name:
-      - pattern: "([a-zA-Z]+_speednode_)0+([1-9][0-9]*)"
-        target: "$1$2"      
+      - pattern: "([A-Z]+_speednode_)0+([1-9][0-9]*)"
+        target: "$1$2"
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
