@@ -229,6 +229,7 @@ proxy-groups:
 rules:
   - GEOSITE,private,DIRECT
   - GEOSITE,github,🚀 节点选择
+  - GEOSITE,microsoft-dev,🚀 节点选择
   - GEOSITE,microsoft,Ⓜ️ 微软服务
   - GEOSITE,apple,🍎 苹果服务
   - GEOSITE,geolocation-!cn,🚀 节点选择
