@@ -45,6 +45,17 @@ proxy-providers:
       interval: 300
       timeout: 1000
       lazy: true
+  snakem982-2:
+    type: http
+    path: ./proxy_providers/snakem982-2.yaml
+    url: https://cdn.jsdelivr.net/gh/snakem982/proxypool@main/source/clash-meta.yaml
+    interval: 3600
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 1000
+      lazy: true
 proxy-groups:
 
   - name: 🚀 节点选择
@@ -56,6 +67,7 @@ proxy-groups:
       - shaoyouvip
       - dongchengjie
       - snakem982
+      - snakem982-2
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
       - 🇸🇬 狮城节点
@@ -126,6 +138,16 @@ proxy-groups:
     timeout: 1000
     use:
       - snakem982
+
+  - name: snakem982-2
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    lazy: true
+    timeout: 1000
+    use:
+      - snakem982-2
 
   - name: 🇭🇰 香港节点
     type: url-test
