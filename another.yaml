@@ -12,44 +12,33 @@ geox-url:
   geoip: "https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/geoip-only-cn-private.dat"
   geosite: "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
 proxy-providers:
-  NoMoreWalls:
+  shaoyouvip:
     type: http
-    path: ./proxy_providers/NoMoreWalls.yaml
-    url: https://cdn.jsdelivr.net/gh/peasoft/NoMoreWalls@master/snippets/nodes.meta.yml
+    path: ./proxy_providers/shaoyouvip.yaml
+    url: https://cdn.jsdelivr.net/gh/shaoyouvip/free@refs/heads/main/all.yaml
     interval: 3600
-    exclude-filter: "(?i)speednode|ripaojiedian"
-    override:
-      proxy-name:
-      - pattern: "^\\d.*?\\|@?(.*)"
-        target: "$1"    
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 300
       timeout: 1000
       lazy: true
-  speednode:
+  dongchengjie:
     type: http
-    path: ./proxy_providers/speednode.yaml
-    url: https://cdn.jsdelivr.net/gh/zhangkaiitugithub/passcro@main/speednodes.yaml
+    path: ./proxy_providers/dongchengjie.yaml
+    url: https://cdn.jsdelivr.net/gh/dongchengjie/airport@refs/heads/main/subs/merged/tested_within.yaml
     interval: 3600
-    filter: "speednode"
-    override:
-      proxy-name:
-      - pattern: "([A-Z]+_speednode_)0+([1-9][0-9]*)"
-        target: "$1$2"
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 300
       timeout: 1000
       lazy: true
-  ripaojiedian:
+  snakem982:
     type: http
-    path: ./proxy_providers/ripaojiedian.yaml
-    url: https://cdn.jsdelivr.net/gh/ripaojiedian/freenode@main/sub
+    path: ./proxy_providers/snakem982.yaml
+    url: https://cdn.jsdelivr.net/gh/snakem982/proxypool@main/source/clash-meta.yaml
     interval: 3600
-    filter: "ripaojiedian"
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
@@ -64,9 +53,9 @@ proxy-groups:
       - ♻️ 自动选择
       - 🔯 故障转移
       - 🔮 负载均衡
-      - NoMoreWalls
-      - speednode
-      - ripaojiedian
+      - shaoyouvip
+      - dongchengjie
+      - snakem982
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
       - 🇸🇬 狮城节点
@@ -76,11 +65,11 @@ proxy-groups:
       - others
       - 🚀 手动切换
       - DIRECT
-      
+
   - name: 🚀 手动切换
     type: select
     include-all-providers: true
-      
+
   - name: ♻️ 自动选择
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -89,7 +78,7 @@ proxy-groups:
     lazy: true
     timeout: 1000
     include-all-providers: true
-    
+
   - name: 🔯 故障转移
     type: fallback
     url: https://www.gstatic.com/generate_204
@@ -97,7 +86,7 @@ proxy-groups:
     lazy: true
     timeout: 1000
     include-all-providers: true
-    
+
   - name: 🔮 负载均衡
     type: load-balance
     strategy: consistent-hashing
@@ -107,20 +96,8 @@ proxy-groups:
     lazy: true
     timeout: 1000
     include-all-providers: true
-      
-  - name: Ⓜ️ 微软服务
-    type: select
-    proxies:
-      - DIRECT
-      - 🚀 节点选择
-      
-  - name: 🍎 苹果服务
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - DIRECT
-      
-  - name: NoMoreWalls
+
+  - name: shaoyouvip
     type: url-test
     url: https://www.gstatic.com/generate_204
     interval: 300
@@ -128,9 +105,9 @@ proxy-groups:
     lazy: true
     timeout: 1000
     use:
-      - NoMoreWalls
-      
-  - name: speednode
+      - shaoyouvip
+
+  - name: dongchengjie
     type: url-test
     url: https://www.gstatic.com/generate_204
     interval: 300
@@ -138,9 +115,9 @@ proxy-groups:
     lazy: true
     timeout: 1000
     use:
-      - speednode
-      
-  - name: ripaojiedian
+      - dongchengjie
+
+  - name: snakem982
     type: url-test
     url: https://www.gstatic.com/generate_204
     interval: 300
@@ -148,8 +125,8 @@ proxy-groups:
     lazy: true
     timeout: 1000
     use:
-      - ripaojiedian
-      
+      - snakem982
+
   - name: 🇭🇰 香港节点
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -159,7 +136,7 @@ proxy-groups:
     timeout: 1000
     filter: "港|HK|hk|Hong Kong|HongKong|hongkong|🇭🇰"
     include-all-providers: true
-      
+
   - name: 🇯🇵 日本节点
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -169,7 +146,7 @@ proxy-groups:
     timeout: 1000
     filter: "日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan|🇯🇵"
     include-all-providers: true
-    
+
   - name: 🇺🇸 美国节点
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -179,7 +156,7 @@ proxy-groups:
     timeout: 1000
     filter: "美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|🇺🇸"
     include-all-providers: true
-    
+
   - name: 🇹🇼 台湾节点
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -189,7 +166,7 @@ proxy-groups:
     timeout: 1000
     filter: "台|新北|彰化|TW|Taiwan|🇹🇼"
     include-all-providers: true
-    
+
   - name: 🇸🇬 狮城节点
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -199,7 +176,7 @@ proxy-groups:
     timeout: 1000
     filter: "新加坡|坡|狮城|SG|Singapore|🇸🇬"
     include-all-providers: true
-    
+
   - name: 🇰🇷 韩国节点
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -218,8 +195,8 @@ proxy-groups:
     lazy: true
     timeout: 1000
     exclude-filter: "港|HK|hk|Hong Kong|HongKong|hongkong|🇭🇰|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan|🇯🇵|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|🇺🇸|台|新北|彰化|TW|Taiwan|🇹🇼|新加坡|坡|狮城|SG|Singapore|🇸🇬|KR|Korea|KOR|首尔|韩|韓|🇰🇷"
-    include-all-providers: true 
-    
+    include-all-providers: true
+
   - name: 🐟 漏网之鱼
     type: select
     proxies:
@@ -230,8 +207,7 @@ rules:
   - GEOSITE,private,DIRECT
   - GEOSITE,github,🚀 节点选择
   - GEOSITE,microsoft-dev,🚀 节点选择
-  - GEOSITE,microsoft,Ⓜ️ 微软服务
-  - GEOSITE,apple,🍎 苹果服务
+  - GEOSITE,microsoft,DIRECT
   - GEOSITE,geolocation-!cn,🚀 节点选择
   - GEOSITE,CN,DIRECT
   - GEOIP,private,DIRECT,no-resolve
