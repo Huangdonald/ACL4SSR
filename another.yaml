@@ -229,6 +229,7 @@ rules:
   - GEOSITE,private,DIRECT
   - GEOSITE,github,🚀 节点选择
   - GEOSITE,microsoft-dev,🚀 节点选择
+  - GEOSITE,dmm-porn,🇯🇵 日本节点
   - GEOSITE,microsoft,DIRECT
   - GEOSITE,geolocation-!cn,🚀 节点选择
   - GEOSITE,CN,DIRECT
