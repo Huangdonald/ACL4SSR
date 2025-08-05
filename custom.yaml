@@ -34,7 +34,7 @@ proxy-providers:
   speednode:
     type: http
     path: ./proxy_providers/speednode.yaml
-    url: https://cdn.jsdelivr.net/gh/zhangkaiitugithub/passcro@main/speednodes.yaml
+    url: https://cdn.jsdelivr.net/gh/zhangkaiitugithub/passcro@main/meta.yaml
     interval: 3600
     override:
       proxy-name:
@@ -50,7 +50,7 @@ proxy-providers:
   ripaojiedian:
     type: http
     path: ./proxy_providers/ripaojiedian.yaml
-    url: https://cdn.jsdelivr.net/gh/ripaojiedian/freenode@main/sub
+    url: https://cdn.jsdelivr.net/gh/ripaojiedian/freenode@main/clash
     interval: 3600
     health-check:
       enable: true
