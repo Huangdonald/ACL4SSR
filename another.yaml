@@ -31,8 +31,8 @@ proxy-providers:
 
   snakem982:
     type: http
-    path: ./proxy_providers/snakem982-2.yaml
-    url: https://cdn.jsdelivr.net/gh/snakem982/proxypool@main/source/clash-meta-2.yaml
+    path: ./proxy_providers/snakem982.yaml
+    url: https://cdn.jsdelivr.net/gh/snakem982/proxypool@main/source/clash-meta.yaml
     interval: 3600
     health-check:
       enable: true
