@@ -1,15 +1,28 @@
 log-level: silent
 allow-lan: true
-tcp-concurrent: true
+tcp-concurrent: false
 disable-keep-alive: true
 global-client-fingerprint: chrome
 dns:
-  enable: false
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-filter:
+    - "*"
+    - "+.lan"
+    - "+.local"
+  default-nameserver:
+    - tls://223.5.5.5
+    - tls://223.6.6.6
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
 
 geodata-mode: true
 geodata-loader: memconservative
 geo-auto-update: true
 geo-update-interval: 24
+geosite-matcher: mph
 geox-url:
   geoip: https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/geoip-only-cn-private.dat
   geosite: https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
@@ -25,6 +38,9 @@ proxy-providers:
       proxy-name:
       - pattern: "^\\d.*?\\|@?(.*)"
         target: "$1"
+    override:
+      skip-cert-verify: true
+      udp: true    
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -42,6 +58,9 @@ proxy-providers:
       proxy-name:
       - pattern: "([A-Z]+_speednode_)0+([1-9][0-9]*)"
         target: "$1$2"
+    override:
+      skip-cert-verify: true
+      udp: true
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -54,6 +73,9 @@ proxy-providers:
     path: ./proxy_providers/ripaojiedian.yaml
     url: https://cdn.jsdelivr.net/gh/ripaojiedian/freenode@main/clash
     interval: 3600
+    override:
+      skip-cert-verify: true
+      udp: true    
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -217,8 +239,8 @@ rules:
   - GEOSITE,github,🚀 节点选择
   - GEOSITE,microsoft-dev,🚀 节点选择
   - GEOSITE,microsoft,DIRECT
-  - GEOSITE,geolocation-!cn,🚀 节点选择
   - GEOSITE,CN,DIRECT
+  - GEOSITE,geolocation-!cn,🚀 节点选择
   - GEOIP,private,DIRECT,no-resolve
   - GEOIP,CN,DIRECT
   - MATCH,🚀 节点选择
