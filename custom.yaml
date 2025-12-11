@@ -38,7 +38,6 @@ proxy-providers:
       proxy-name:
       - pattern: "^\\d.*?\\|@?(.*)"
         target: "$1"
-    override:
       skip-cert-verify: true
       udp: true    
     health-check:
@@ -58,7 +57,6 @@ proxy-providers:
       proxy-name:
       - pattern: "([A-Z]+_speednode_)0+([1-9][0-9]*)"
         target: "$1$2"
-    override:
       skip-cert-verify: true
       udp: true
     health-check:
