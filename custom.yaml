@@ -4,19 +4,7 @@ tcp-concurrent: false
 disable-keep-alive: true
 global-client-fingerprint: chrome
 dns:
-  enable: true
-  ipv6: false
-  enhanced-mode: fake-ip
-  fake-ip-filter:
-    - "*"
-    - "+.lan"
-    - "+.local"
-  default-nameserver:
-    - tls://223.5.5.5
-    - tls://223.6.6.6
-  nameserver:
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
+  enable: false
 
 geodata-mode: true
 geodata-loader: memconservative
