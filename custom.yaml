@@ -13,8 +13,6 @@ dns:
   default-nameserver:
     - 223.5.5.5
     - 223.6.6.6
-    - tls://223.5.5.5
-    - tls://223.6.6.6
   nameserver:
     - https://223.5.5.5/dns-query#h3=true
     - https://223.6.6.6/dns-query#h3=true
@@ -41,7 +39,6 @@ proxy-providers:
       - pattern: "^\\d.*?\\|@?(.*)"
         target: "$1"
       skip-cert-verify: true
-      udp: true    
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -60,7 +57,6 @@ proxy-providers:
       - pattern: "([A-Z]+_speednode_)0+([1-9][0-9]*)"
         target: "$1$2"
       skip-cert-verify: true
-      udp: true
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -75,7 +71,6 @@ proxy-providers:
     interval: 3600
     override:
       skip-cert-verify: true
-      udp: true    
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -238,6 +233,7 @@ rules:
   - GEOSITE,private,DIRECT
   - GEOSITE,github,🚀 节点选择
   - GEOSITE,microsoft-dev,🚀 节点选择
+  - GEOSITE,google,🚀 节点选择
   - GEOSITE,microsoft,DIRECT
   - GEOSITE,CN,DIRECT
   - GEOSITE,geolocation-!cn,🚀 节点选择
