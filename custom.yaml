@@ -1,22 +1,10 @@
 log-level: silent
 allow-lan: true
-tcp-concurrent: false
+tcp-concurrent: true
 disable-keep-alive: true
 global-client-fingerprint: chrome
 dns:
-  enable: true
-  prefer-h3: true
-  enhanced-mode: fake-ip
-  fake-ip-filter:
-    - geosite:connectivity-check
-    - geosite:private
-  default-nameserver:
-    - 223.5.5.5
-    - 223.6.6.6
-  nameserver:
-    - https://223.5.5.5/dns-query#h3=true
-    - https://223.6.6.6/dns-query#h3=true
-    - system
+  enable: false
 
 geodata-mode: true
 geodata-loader: memconservative
@@ -41,7 +29,7 @@ proxy-providers:
       skip-cert-verify: true
     health-check:
       enable: true
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       interval: 300
       timeout: 1000
       lazy: true
@@ -59,7 +47,7 @@ proxy-providers:
       skip-cert-verify: true
     health-check:
       enable: true
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       interval: 300
       timeout: 1000
       lazy: true
@@ -73,7 +61,7 @@ proxy-providers:
       skip-cert-verify: true
     health-check:
       enable: true
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       interval: 300
       timeout: 1000
       lazy: true
@@ -104,7 +92,7 @@ proxy-groups:
 
   - name: ♻️ 自动选择
     type: url-test
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -113,7 +101,7 @@ proxy-groups:
 
   - name: 🔯 故障转移
     type: fallback
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 300
     lazy: true
     timeout: 1000
@@ -122,7 +110,7 @@ proxy-groups:
   - name: 🔮 负载均衡
     type: load-balance
     strategy: consistent-hashing
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -131,7 +119,7 @@ proxy-groups:
 
   - name: NoMoreWalls
     type: url-test
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -141,7 +129,7 @@ proxy-groups:
 
   - name: speednode
     type: url-test
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -151,7 +139,7 @@ proxy-groups:
 
   - name: ripaojiedian
     type: url-test
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -161,7 +149,7 @@ proxy-groups:
 
   - name: 🇭🇰 香港节点
     type: url-test
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -171,7 +159,7 @@ proxy-groups:
 
   - name: 🇯🇵 日本节点
     type: url-test
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -181,7 +169,7 @@ proxy-groups:
 
   - name: 🇺🇸 美国节点
     type: url-test
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -191,7 +179,7 @@ proxy-groups:
 
   - name: 🇹🇼 台湾节点
     type: url-test
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -201,7 +189,7 @@ proxy-groups:
 
   - name: 🇸🇬 狮城节点
     type: url-test
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -211,7 +199,7 @@ proxy-groups:
 
   - name: 🇰🇷 韩国节点
     type: url-test
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -221,7 +209,7 @@ proxy-groups:
 
   - name: others
     type: url-test
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -235,8 +223,8 @@ rules:
   - GEOSITE,microsoft-dev,🚀 节点选择
   - GEOSITE,google,🚀 节点选择
   - GEOSITE,microsoft,DIRECT
-  - GEOSITE,CN,DIRECT
   - GEOSITE,geolocation-!cn,🚀 节点选择
+  - GEOSITE,CN,DIRECT
   - GEOIP,private,DIRECT,no-resolve
   - GEOIP,CN,DIRECT
   - MATCH,🚀 节点选择
