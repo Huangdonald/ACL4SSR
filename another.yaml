@@ -1,8 +1,6 @@
 log-level: silent
 allow-lan: true
 tcp-concurrent: true
-disable-keep-alive: true
-global-client-fingerprint: chrome
 dns:
   enable: false
 
