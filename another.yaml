@@ -20,7 +20,6 @@ proxy-providers:
     url: https://cdn.jsdelivr.net/gh/shaoyouvip/free@main/all.yaml
     interval: 3600
     override:
-      udp: false
       skip-cert-verify: true
     health-check:
       enable: true
@@ -35,7 +34,6 @@ proxy-providers:
     url: https://cdn.jsdelivr.net/gh/snakem982/proxypool@main/source/clash-meta-2.yaml
     interval: 3600
     override:
-      udp: false
       skip-cert-verify: true
     health-check:
       enable: true
@@ -50,7 +48,6 @@ proxy-providers:
     url: https://cdn.jsdelivr.net/gh/anaer/Sub@main/proxies.yaml
     interval: 3600
     override:
-      udp: false
       skip-cert-verify: true
     health-check:
       enable: true

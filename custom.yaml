@@ -24,7 +24,6 @@ proxy-providers:
       proxy-name:
       - pattern: "^\\d.*?\\|@?(.*)"
         target: "$1"
-      udp: false
       skip-cert-verify: true
     health-check:
       enable: true
@@ -43,7 +42,6 @@ proxy-providers:
       proxy-name:
       - pattern: "([A-Z]+_speednode_)0+([1-9][0-9]*)"
         target: "$1$2"
-      udp: false
       skip-cert-verify: true
     health-check:
       enable: true
@@ -58,7 +56,6 @@ proxy-providers:
     url: https://cdn.jsdelivr.net/gh/ripaojiedian/freenode@main/clash
     interval: 3600
     override:
-      udp: false
       skip-cert-verify: true
     health-check:
       enable: true
