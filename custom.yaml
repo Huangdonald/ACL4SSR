@@ -1,6 +1,6 @@
 log-level: silent
 allow-lan: true
-tcp-concurrent: true
+tcp-concurrent: false
 dns:
   enable: false
 
@@ -27,7 +27,7 @@ proxy-providers:
       skip-cert-verify: true
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
+      url: http://cp.cloudflare.com/generate_204
       interval: 300
       timeout: 1000
       lazy: true
@@ -45,7 +45,7 @@ proxy-providers:
       skip-cert-verify: true
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
+      url: http://cp.cloudflare.com/generate_204
       interval: 300
       timeout: 1000
       lazy: true
@@ -59,7 +59,7 @@ proxy-providers:
       skip-cert-verify: true
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
+      url: http://cp.cloudflare.com/generate_204
       interval: 300
       timeout: 1000
       lazy: true
@@ -90,7 +90,7 @@ proxy-groups:
 
   - name: ♻️ 自动选择
     type: url-test
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -99,7 +99,7 @@ proxy-groups:
 
   - name: 🔯 故障转移
     type: fallback
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     lazy: true
     timeout: 1000
@@ -108,7 +108,7 @@ proxy-groups:
   - name: 🔮 负载均衡
     type: load-balance
     strategy: consistent-hashing
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -117,7 +117,7 @@ proxy-groups:
 
   - name: NoMoreWalls
     type: url-test
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -127,7 +127,7 @@ proxy-groups:
 
   - name: speednode
     type: url-test
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -137,7 +137,7 @@ proxy-groups:
 
   - name: ripaojiedian
     type: url-test
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -147,7 +147,7 @@ proxy-groups:
 
   - name: 🇭🇰 香港节点
     type: url-test
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -157,7 +157,7 @@ proxy-groups:
 
   - name: 🇯🇵 日本节点
     type: url-test
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -167,7 +167,7 @@ proxy-groups:
 
   - name: 🇺🇸 美国节点
     type: url-test
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -177,7 +177,7 @@ proxy-groups:
 
   - name: 🇹🇼 台湾节点
     type: url-test
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -187,7 +187,7 @@ proxy-groups:
 
   - name: 🇸🇬 狮城节点
     type: url-test
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -197,7 +197,7 @@ proxy-groups:
 
   - name: 🇰🇷 韩国节点
     type: url-test
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
@@ -207,7 +207,7 @@ proxy-groups:
 
   - name: others
     type: url-test
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     lazy: true
