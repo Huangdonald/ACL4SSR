@@ -10,21 +10,20 @@ geo-auto-update: true
 geo-update-interval: 24
 geosite-matcher: mph
 geox-url:
-  geoip: https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/geoip-only-cn-private.dat
-  geosite: https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
+  geoip: https://fastly.jsdelivr.net/gh/Loyalsoldier/geoip@release/geoip-only-cn-private.dat
+  geosite: https://fastly.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
 
 proxy-providers:
   NoMoreWalls:
     type: http
     path: ./proxy_providers/NoMoreWalls.yaml
-    url: https://cdn.jsdelivr.net/gh/peasoft/NoMoreWalls@master/snippets/nodes.meta.yml
+    url: https://fastly.jsdelivr.net/gh/peasoft/NoMoreWalls@master/snippets/nodes.meta.yml
     interval: 3600
     exclude-filter: "(?i)speednode|ripaojiedian"
     override:
       proxy-name:
       - pattern: "^\\d.*?\\|@?(.*)"
         target: "$1"
-      skip-cert-verify: true
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
@@ -35,14 +34,12 @@ proxy-providers:
   speednode:
     type: http
     path: ./proxy_providers/speednode.yaml
-    url: https://cdn.jsdelivr.net/gh/zhangkaiitugithub/passcro@main/speednodes.yaml
+    url: https://fastly.jsdelivr.net/gh/zhangkaiitugithub/passcro@main/speednodes.yaml
     interval: 3600
-    exclude-filter: "GB"
     override:
       proxy-name:
       - pattern: "([A-Z]+_speednode_)0+([1-9][0-9]*)"
         target: "$1$2"
-      skip-cert-verify: true
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
@@ -53,10 +50,8 @@ proxy-providers:
   ripaojiedian:
     type: http
     path: ./proxy_providers/ripaojiedian.yaml
-    url: https://cdn.jsdelivr.net/gh/ripaojiedian/freenode@main/clash
+    url: https://fastly.jsdelivr.net/gh/ripaojiedian/freenode@main/clash
     interval: 3600
-    override:
-      skip-cert-verify: true
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
