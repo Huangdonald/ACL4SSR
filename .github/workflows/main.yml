@@ -26,3 +26,4 @@ jobs:
             curl -X GET "$url"
             echo -e "\n--------------------------"
           done
+      - uses: gautamkrishnar/keepalive-workflow@v2  
