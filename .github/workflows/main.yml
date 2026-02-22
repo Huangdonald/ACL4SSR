@@ -1,16 +1,14 @@
 name: Hourly Cache Purge
 on:
   schedule:
-    # 这里的 cron 表达式代表每小时执行一次 (第 0 分钟)
     - cron: '0 * * * *'
-  workflow_dispatch: # 允许你手动在 GitHub 页面点击运行，方便测试
+  workflow_dispatch:
 
 jobs:
   purge:
     runs-on: ubuntu-latest
     steps:
-      - name: Purge jsDelivr Cache
-        run: |
+      - run: |
           TARGET_URLS=(
             "https://purge.jsdelivr.net/gh/peasoft/NoMoreWalls@master/snippets/nodes.meta.yml"
             "https://purge.jsdelivr.net/gh/zhangkaiitugithub/passcro@main/meta.yaml"
@@ -26,12 +24,3 @@ jobs:
             curl -X GET "$url"
             echo -e "\n--------------------------"
           done
-      - uses: actions/checkout@v4
-      - name: Create dummy commit if needed
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          echo "$(date -u)" > .github/keep-alive.md
-          git add .github/keep-alive.md
-          git commit -m "chore: keep alive $(date -u +'%Y-%m-%d')" || echo "No changes to commit"
-          git push
