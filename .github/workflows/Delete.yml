@@ -8,6 +8,6 @@ jobs:
   del_runs:
     runs-on: ubuntu-latest
     steps:
-      - uses: GitRML/delete-workflow-runs@main
+      - uses: Mattraks/delete-workflow-runs@v2.1.0
         with:
           retain_days: 1
