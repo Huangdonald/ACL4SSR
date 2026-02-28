@@ -24,8 +24,8 @@ proxy-providers:
       skip-cert-verify: true
       udp: false
       proxy-name:
-      - pattern: "^\\d.*?\\|@?(.*)"
-        target: "$1"
+        - pattern: "^\\d.*?\\|@?(.*)"
+          target: "$1"
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
@@ -42,8 +42,8 @@ proxy-providers:
       skip-cert-verify: true
       udp: false
       proxy-name:
-      - pattern: "([A-Z]+_speednode_)0+([1-9][0-9]*)"
-        target: "$1$2"
+        - pattern: "([A-Z]+_speednode_)0+([1-9][0-9]*)"
+          target: "$1$2"
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
