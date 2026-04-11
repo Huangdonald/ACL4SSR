@@ -20,7 +20,10 @@ jobs:
           )
 
           for url in "${TARGET_URLS[@]}"; do
-            echo "正在刷新: $url"
-            curl -X GET "$url"
-            echo -e "\n--------------------------"
+            # echo "正在刷新: $url"
+            # curl -X GET "$url"
+            # echo -e "\n--------------------------"
+            curl -s "$url" &
           done
+
+          wait
