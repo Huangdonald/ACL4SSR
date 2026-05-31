@@ -21,7 +21,6 @@ proxy-providers:
     interval: 3600
     override:
       skip-cert-verify: true
-      udp: false
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
@@ -36,7 +35,6 @@ proxy-providers:
     interval: 3600
     override:
       skip-cert-verify: true
-      udp: false
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
@@ -51,7 +49,6 @@ proxy-providers:
     interval: 3600
     override:
       skip-cert-verify: true
-      udp: false
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
