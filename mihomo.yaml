@@ -32,7 +32,6 @@ proxy-groups:
       - ♻️ 自动选择
       - 🔯 故障转移
       - 🔮 负载均衡
-      - ovmvo
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
       - 🇸🇬 狮城节点
@@ -63,11 +62,6 @@ proxy-groups:
     type: load-balance
     strategy: consistent-hashing
     include-all-providers: true
-
-  - name: ovmvo
-    type: url-test
-    use:
-      - ovmvo
 
   - name: 🇭🇰 香港节点
     type: url-test
