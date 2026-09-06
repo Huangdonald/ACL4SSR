@@ -95,6 +95,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 600
     lazy: true
+    timeout: 1000
     include-all-providers: true
 
   - name: 🔮 负载均衡
@@ -103,6 +104,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 600
     lazy: true
+    timeout: 1000
     include-all-providers: true
 
   - name: NoMoreWalls
@@ -208,7 +210,7 @@ proxy-groups:
 rules:
   - RULE-SET,private,DIRECT
   - RULE-SET,github,🚀 节点选择
-  - RULE-SET,microsoft-dev,🚀 节点选择
+  # - RULE-SET,microsoft-dev,🚀 节点选择
   - RULE-SET,google,🚀 节点选择
   - RULE-SET,microsoft,DIRECT
   - RULE-SET,geolocation-!cn,🚀 节点选择

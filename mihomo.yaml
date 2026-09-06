@@ -48,6 +48,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 600
     lazy: true
+    timeout: 1000
 
   - name: 🔯 故障转移
     type: fallback
@@ -55,6 +56,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 600
     lazy: true
+    timeout: 1000
 
   - name: 🔮 负载均衡
     type: load-balance
@@ -63,6 +65,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 600
     lazy: true
+    timeout: 1000
 
   - name: 🇭🇰 香港节点
     type: url-test
@@ -71,6 +74,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 600
     lazy: true
+    timeout: 1000
 
   - name: 🇯🇵 日本节点
     type: url-test
@@ -79,6 +83,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 600
     lazy: true
+    timeout: 1000
 
   - name: 🇺🇸 美国节点
     type: url-test
@@ -87,6 +92,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 600
     lazy: true
+    timeout: 1000
 
   - name: 🇹🇼 台湾节点
     type: url-test
@@ -95,6 +101,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 600
     lazy: true
+    timeout: 1000
 
   - name: 🇸🇬 狮城节点
     type: url-test
@@ -103,6 +110,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 600
     lazy: true
+    timeout: 1000
 
   - name: 🇰🇷 韩国节点
     type: url-test
@@ -111,6 +119,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 600
     lazy: true
+    timeout: 1000
 
   - name: others
     type: url-test
@@ -119,6 +128,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 600
     lazy: true
+    timeout: 1000
 
 rules:
   - RULE-SET,private_ip,DIRECT,no-resolve
