@@ -11,7 +11,7 @@ proxy-providers:
   NoMoreWalls:
     type: http
     path: ./proxy_providers/NoMoreWalls.yaml
-    url: https://fastly.jsdelivr.net/gh/peasoft/NoMoreWalls@master/snippets/nodes.meta.yml
+    url: https://testingcf.jsdelivr.net/gh/peasoft/NoMoreWalls@master/snippets/nodes.meta.yml
     interval: 3600
     exclude-filter: "(?i)speednode|ripaojiedian"
     override:
@@ -21,15 +21,15 @@ proxy-providers:
           target: "$1"
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
-      interval: 300
+      url: https://www.gstatic.com/generate_204
+      interval: 600
       timeout: 1000
       lazy: true
 
   speednode:
     type: http
     path: ./proxy_providers/speednode.yaml
-    url: https://fastly.jsdelivr.net/gh/zhangkaiitugithub/passcro@main/speednodes.yaml
+    url: https://testingcf.jsdelivr.net/gh/zhangkaiitugithub/passcro@main/speednodes.yaml
     interval: 3600
     override:
       skip-cert-verify: true
@@ -38,22 +38,22 @@ proxy-providers:
           target: "$1$2"
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
-      interval: 300
+      url: https://www.gstatic.com/generate_204
+      interval: 600
       timeout: 1000
       lazy: true
 
   ripaojiedian:
     type: http
     path: ./proxy_providers/ripaojiedian.yaml
-    url: https://fastly.jsdelivr.net/gh/ripaojiedian/freenode@main/clash
+    url: https://testingcf.jsdelivr.net/gh/ripaojiedian/freenode@main/clash
     interval: 3600
     override:
       skip-cert-verify: true
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
-      interval: 300
+      url: https://www.gstatic.com/generate_204
+      interval: 600
       timeout: 1000
       lazy: true
 
@@ -83,8 +83,8 @@ proxy-groups:
 
   - name: ♻️ 自动选择
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
+    url: https://www.gstatic.com/generate_204
+    interval: 600
     tolerance: 50
     lazy: true
     timeout: 1000
@@ -92,26 +92,23 @@ proxy-groups:
 
   - name: 🔯 故障转移
     type: fallback
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
+    url: https://www.gstatic.com/generate_204
+    interval: 600
     lazy: true
-    timeout: 1000
     include-all-providers: true
 
   - name: 🔮 负载均衡
     type: load-balance
     strategy: consistent-hashing
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
+    url: https://www.gstatic.com/generate_204
+    interval: 600
     lazy: true
-    timeout: 1000
     include-all-providers: true
 
   - name: NoMoreWalls
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
+    url: https://www.gstatic.com/generate_204
+    interval: 600
     tolerance: 50
     lazy: true
     timeout: 1000
@@ -120,8 +117,8 @@ proxy-groups:
 
   - name: speednode
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
+    url: https://www.gstatic.com/generate_204
+    interval: 600
     tolerance: 50
     lazy: true
     timeout: 1000
@@ -130,8 +127,8 @@ proxy-groups:
 
   - name: ripaojiedian
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
+    url: https://www.gstatic.com/generate_204
+    interval: 600
     tolerance: 50
     lazy: true
     timeout: 1000
@@ -140,8 +137,8 @@ proxy-groups:
 
   - name: 🇭🇰 香港节点
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
+    url: https://www.gstatic.com/generate_204
+    interval: 600
     tolerance: 50
     lazy: true
     timeout: 1000
@@ -150,8 +147,8 @@ proxy-groups:
 
   - name: 🇯🇵 日本节点
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
+    url: https://www.gstatic.com/generate_204
+    interval: 600
     tolerance: 50
     lazy: true
     timeout: 1000
@@ -160,8 +157,8 @@ proxy-groups:
 
   - name: 🇺🇸 美国节点
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
+    url: https://www.gstatic.com/generate_204
+    interval: 600
     tolerance: 50
     lazy: true
     timeout: 1000
@@ -170,8 +167,8 @@ proxy-groups:
 
   - name: 🇹🇼 台湾节点
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
+    url: https://www.gstatic.com/generate_204
+    interval: 600
     tolerance: 50
     lazy: true
     timeout: 1000
@@ -180,8 +177,8 @@ proxy-groups:
 
   - name: 🇸🇬 狮城节点
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
+    url: https://www.gstatic.com/generate_204
+    interval: 600
     tolerance: 50
     lazy: true
     timeout: 1000
@@ -190,8 +187,8 @@ proxy-groups:
 
   - name: 🇰🇷 韩国节点
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
+    url: https://www.gstatic.com/generate_204
+    interval: 600
     tolerance: 50
     lazy: true
     timeout: 1000
@@ -200,8 +197,8 @@ proxy-groups:
 
   - name: others
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
+    url: https://www.gstatic.com/generate_204
+    interval: 600
     tolerance: 50
     lazy: true
     timeout: 1000
@@ -226,28 +223,28 @@ rule-anchor:
 rule-providers:
   private:
     <<: *domain
-    url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.mrs"
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.mrs"
   github:
     <<: *domain
-    url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.mrs"
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.mrs"
   microsoft-dev:
     <<: *domain
-    url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft-dev.mrs"
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft-dev.mrs"
   google:
     <<: *domain
-    url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs"
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs"
   microsoft:
     <<: *domain
-    url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.mrs"
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.mrs"
   geolocation-!cn:
     <<: *domain
-    url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.mrs"
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.mrs"
   cn:
     <<: *domain
-    url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.mrs"
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.mrs"
   private_ip:
     <<: *ip
-    url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs"
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs"
   cn_ip:
     <<: *ip
-    url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs"
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs"
